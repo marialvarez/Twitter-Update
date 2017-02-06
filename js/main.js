@@ -17,7 +17,6 @@ boton.addEventListener("click", function(){
  
 }); 
 
-
 function drawTasksList(){
     
     var lista = document.getElementById("lista");
@@ -29,31 +28,19 @@ function drawTasksList(){
         var html = "<li class='contenedorTarea'"+(listaTareas[i].isDone?"style='text-decoration:line-through'":"style='text-decoration:none'")+"><input onclick='onCheckClick("+i+")' type='checkbox' " + (listaTareas[i].isDone?"checked":"") + "> " +(listaTareas[i].nombre)+"<i onclick='onTrashClick("+i+")' class='glyphicon glyphicon-trash tacho'></i></li>";
         
         /*listaTareas[i].classList.add="option animated rotateInDownLeft";*/
-        lista.innerHTML += html;
-        
+        lista.innerHTML += html;     
     }    
 }
 
-function onCheckClick(input)
-{
+function onCheckClick(input) {
     listaTareas[input].isDone = !listaTareas[input].isDone;
     drawTasksList();
-    
-    /*if(listaTareas[input].isDone==false){
-        listaTareas[input].isDone=true;
-        lista.getElementsByClassName("contenedorTarea")[input].classList.add("tachado");
-    } else {
-        listaTareas[input].isDone=false;
-        lista.getElementsByClassName("contenedorTarea")[input].classList.remove("tachado");
-    }*/
 }
  
-function onTrashClick(trash)
-{
+function onTrashClick(trash){
     //lista.removeChild(lista.children[trash]);  
     listaTareas.splice(trash,1); 
-    drawTasksList();    
-    
+    drawTasksList();      
 }
 
 
